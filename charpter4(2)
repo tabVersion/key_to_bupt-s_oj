@@ -1,0 +1,107 @@
+A.结构数组使用
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <iomanip>
+using namespace std ;
+struct node
+{
+    string name , gender , year , num ;  
+}map[10] ; 
+int main()
+{
+    for(int i=0 ; i< 5 ; i++)
+    {
+        cin >> map[i].name >> map[i].gender >> map[i].year >> map[i].num ;
+    }
+    for(int i= 0 ; i< 5 ; i++) 
+    {
+        cout << setiosflags(ios::left) << setw(10) << map[i].name ; 
+        cout << std::left << setw(10) <<map[i].gender << std::left << setw(10) <<map[i].year << std::left << setw(10) <<map[i].num <<endl ;   
+    }
+    return 0 ; 
+} 
+*/
+
+B.计算第几天
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+using namespace std ;
+bool ask(int n)
+{
+    if(n%4!=0) return false ; 
+    if(n% 100 ==0 && n%400 == 0 ) return true ; 
+    if(n%4 == 0 && n% 100 == 0 ) return false ; 
+    return true ; 
+}  
+void sum(int y , int b , int c , bool s)
+{
+    int ans = 0 ; 
+    if(s)
+    {
+        int a[] = {0 , 31 , 29 , 31 , 30 , 31 , 30  , 31 , 31 ,30 , 31 ,30 , 31} ; 
+        for(int i = 1 ; i<b ; i++) 
+        {ans+=a[i] ; } ans += c ; 
+    }
+    else
+    {
+        int a[] = {0 , 31 , 28 , 31 , 30 , 31 , 30  , 31 , 31 ,30 , 31 ,30 , 31} ; 
+        for(int i = 1 ; i<b ; i++) 
+        {ans+=a[i] ; } ans += c ; 
+    }
+    cout << y << "年" <<b << "月" << c << "日是本年中的第" << ans << "天。" << endl ; 
+}
+struct node 
+{
+    int a , b, c ; 
+}q ; 
+int main()
+{ 
+    cin >> q.a >> q.b >>q.c ; 
+    sum(q.a ,q.b , q.c, ask(q.a)) ;  
+    return 0 ; 
+}
+*/
+
+C.字母统计
+/*
+#include <iostream> 
+using namespace std;  
+int main() 
+{    
+    const int N = 80;  
+    char buffer[N];  
+    int k=0;  int p;
+    const int NUM = 26;  
+    int counts[NUM] = {0}; 
+    char letters[NUM];  
+    int i = 0; 
+    cin>>p;
+for(int j=0;j<p+1;j++) 
+    {
+        cin.getline(buffer, N,'\n'); 
+         k = 0;  
+        while (buffer[k] != '\0') 
+        { 
+             i =tolower( buffer[k]) - 'a';  
+             counts[i]++;   
+             k++; 
+        } 
+    }
+   if(counts[0]!=0)
+  {     for (i=0; i<NUM; i++) 
+        {letters[i] = (char)('a'+i);  
+        if (counts[i]>0)  
+        { 
+             cout<<letters[i]<<":"<<counts[i]<<endl;  
+        } 
+    } }
+    else
+    cout<<"字符串中无字母。";
+    return 0;
+}
+*/
