@@ -1,4 +1,4 @@
-# key_to_bupt-s_oj
+# key_to_bupt's OJ
 
 本项目旨在帮助北邮的新生们更快的学习c++
 
