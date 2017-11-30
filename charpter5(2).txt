@@ -1,0 +1,82 @@
+A.斐波那契数列
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std ; 
+long long map[10000010] ; 
+int main()
+{
+    long long ans = 2 ; 
+    int n ; cin >> n ; 
+    if( n == 1 || n == 2 ) { cout << 1 << endl ; return 0 ; }
+    map[1] = 1 ; map[2] = 1 ;
+    for( int i = 3 ; i<= n ; i++ )
+    { map[i] = map[i-1] + map[i-2] ;  } 
+    cout << map[n] << endl ; 
+    return 0 ; 
+}
+*/
+
+B.计算排列
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std ; 
+int main()
+{
+    int m , n ; 
+    cin >> n >> m ; 
+    long long ans = 1 ; 
+    for( long long i = n- m + 1 ; i<= n ;i ++) 
+        ans *= i ; 
+    cout << ans << endl ; 
+    return 0 ; 
+}
+*/
+
+C.分糖果
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std ; 
+int map[20] ;
+bool check(int n) {return n % 2== 0 ? true : false ; }
+bool check_all()
+{
+    int a = map[1] ; 
+    for( int i = 2 ; i<= 10 ; i++ ) if(map[i] != a) 
+        return false ; 
+    return true  ; 
+} 
+void change()
+{
+    int map1[20] = {0} ; 
+    map1[11] = map[1] / 2 ; 
+    for( int i = 10 ; i >= 1 ; i-- ) 
+    {
+        map1[i] = map[i] /2 ; map[i]/=2 ;
+        map[i] += map1[i+1] ; 
+    }
+}
+int main()
+{
+    //freopen("a.txt" , "r" , stdin ) ; 
+    for( int i = 1 ; i<= 10 ; i ++)  cin >> map[i] ; 
+    int t = 0 ; 
+    while(!check_all())
+    {
+        change() ; 
+        for( int i = 1 ; i <= 10 ; i++ ) 
+            if(!check(map[i])) map[i] ++ ; 
+        t ++ ; 
+    }
+    cout << t << " " << map[1] << endl ; 
+    return 0 ; 
+}
+*/
