@@ -1,0 +1,100 @@
+这一次写的有点急 原则就是ac
+所以没有按照题目上的要求写
+
+A 求最大值
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std ; 
+struct node 
+{
+    int val ;
+    node* nxt  , *pre ; 
+};
+int ask(int a[] , int* p )
+{
+    return (a[1]>a[2]?a[1]:a[2] ) >a[3] ? (a[1]>a[2]?a[1]:a[2] ) : a[3]; 
+}
+int main()
+{
+    int a[5] ; 
+    for( int i = 1 ;i <= 3 ; i++ ) cin >> a[i] ;
+    int *p = a; 
+    cout << ask( a , p ) << endl ;
+    return 0 ; 
+}   
+*/
+
+B 求平均值
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std ; 
+int main()
+{
+    long long sum = 0 ; 
+    for( int i =0 ; i < 5 ; i++) {int a ; cin >> a ; sum += a ;}
+    cout << (double) sum / 5 << " " ; 
+    sum = 0 ;   
+    for( int i = 0 ; i< 6 ; i++) {int a ; cin >> a ; sum += a ;}
+    cout << (double) sum / 6 << endl ; 
+    return 0 ; 
+}
+*/
+
+C 动态申请数组 不好意思这个题的代码一直是格式错误 等到我ac了再改吧
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+int inf = 0x3f3f3f; 
+int main()
+{
+    int n; cin >> n;
+    int *p = new int[n];
+    int count = 0;
+    int *ptr = p;
+    for (int i = 0; i< n; i++)
+    {
+        int a; cin >> a;
+        if (a == 0) *ptr = inf; 
+        else *ptr = a;
+        ptr++; 
+    }
+    sort(p, ptr );
+    for (; p != ptr; p++)
+    {
+        if(*p != inf )cout << *p << " ";
+        else cout << 0 << " "; 
+    }
+    return 0;
+}
+*/
+
+D 数组合并
+/*
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+#include <iostream>
+using namespace std ;
+int map[10000010] ;
+int main()
+{
+  int m , n  ;
+  cin >> m ;
+  int i = 0 ;
+  for(;i<m ; i++) cin >> map[i] ;
+  cin >> n ;
+  for( ; i < n+m ; i++) cin >> map[i] ;
+  sort(map , map+n+m) ;
+  for(int i = 0 ; i< m+n ;i ++) cout << map[i] << " " ;
+  return 0 ; 
+}
+*/
