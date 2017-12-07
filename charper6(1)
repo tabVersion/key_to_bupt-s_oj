@@ -46,7 +46,7 @@ int main()
 }
 */
 
-C 动态申请数组 不好意思这个题的代码一直是格式错误 等到我ac了再改吧
+C 动态申请数组 值得注意的是这个题目的格式要求最后不能有空格
 /*
 #include <cstdio>
 #include <iostream>
@@ -68,11 +68,13 @@ int main()
         ptr++; 
     }
     sort(p, ptr );
-    for (; p != ptr; p++)
+    for (; p != ptr-1; p++)
     {
         if(*p != inf )cout << *p << " ";
         else cout << 0 << " "; 
     }
+    if(*(p+n)) cout << 0 ;
+	else cout << *(p+n) ;  
     return 0;
 }
 */
