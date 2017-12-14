@@ -1,0 +1,100 @@
+总结一下 algorithm大法好
+
+A 字符指针数组
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <string>
+using namespace std ;
+string m[5] ; 
+int main()
+{
+    for( int i = 0 ; i < 5 ; i++ )
+        cin >> m[i] ; 
+    sort(m , m + 5 );
+    for( int i = 0 ; i < 5 ; i++ )
+        cout << m[i] << endl ;  
+    return 0 ;  
+} 
+*/
+
+B 结构体和指针
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <string>
+using namespace std ;
+struct node 
+{
+    string s ; 
+    int mark[5] ; 
+    double avr ; 
+} list[3] ; 
+void cal(int i)
+{
+    long long ans = 0 ; 
+    for( int j = 0 ; j < 5 ; j++ )
+        ans += list[i].mark[j] ; 
+    list[i].avr = (double)ans/5 ;  
+}
+bool cmp(node a , node b)
+{ return a.avr > b.avr ? true : false ; }
+int main()
+{
+    for( int i = 0 ; i < 3  ;i++ )
+    {
+        cin >> list[i].s ; 
+        for( int j = 0 ; j < 5 ; j++ ) 
+            cin >> list[i].mark[j] ; 
+        cal(i) ;  
+    }
+    sort(list , list + 3 , cmp) ; 
+     
+    for( int i = 0 ; i < 3 ; i++ )
+    {
+        cout << list[i].s << " " ; 
+        for( int j = 0 ; j < 5 ; j++) 
+            cout << list[i].mark[j] << " " ; 
+        cout << list[i].avr << endl ; 
+    }
+     
+    return 0 ; 
+}
+*/
+
+C 数据插入
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <string>
+using namespace std ;
+bool cmp(int a , int b)
+{ return a > b ? true : false ; }
+void out(int i)
+{ cout << i + 1 << endl ; }
+int main()
+{
+    int n , *p ;
+    cin >> n ; 
+    p = new int[n+1];
+    for( int i = 0 ; i < n ; i++ )
+    {
+        int a ; cin >> a ;
+        *(p+i) = a ;
+    }
+    int s ; cin >> s ;
+    *(p+n) = s;
+    sort(p , p + n + 1 , cmp) ; 
+    for( int i = 0 ; i < n + 1 ; i ++ )
+    {
+        if(*(p + i) == s ) {out(i) ; break;}
+    } 
+    return 0 ; 
+}
+*/
