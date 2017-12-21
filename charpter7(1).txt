@@ -1,0 +1,130 @@
+A
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std ;
+double pi = 3.14 ; 
+class cirle
+{
+private:
+    double r ; 
+public:
+    void get_r(double _r) {r = _r;}
+    double outGet_r() {return pi*2*r;}
+    double outGet_s() {return pi*r*r ; }    
+}s ; 
+int main()
+{
+    double a ; cin >> a ; 
+    s.get_r(a) ;
+    cout << "周长" <<s.outGet_r() << " "<< "面积" << s.outGet_s() << endl ; 
+    return 0 ; 
+} 
+*/
+
+B
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std ;
+double pi = 3.14 ; 
+class sqa
+{
+private:
+    double length , wide;
+    double s ; 
+public:
+    void get(double _length , double _wide) 
+    {
+        length = _length ; 
+        wide = _wide ;
+        s = length * wide ; 
+    }
+    double outS()
+    {return s;}
+};
+double maxn(double a , double b)
+{return a > b ? a : b ; }
+int main()
+{
+    sqa *a1, *a2 , *a3 ; 
+    a1 = new sqa ; 
+    a1->get(5.2 , 4.3) ; 
+    a2 = new sqa ; 
+    a2->get(100,20) ; 
+    a3 = new sqa ; 
+    double a , b ; cin >> a >> b ;
+    a3->get(a,b) ; 
+    cout << maxn(maxn(a1->outS() , a2->outS()),a3->outS()) << endl ; 
+    return 0 ; 
+}
+*/
+
+C
+/*
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std ;
+double pi = 3.14 ; 
+class tri 
+{
+private:
+    int a[3] ; 
+private:
+    bool equileteral()
+    {
+        if(a[0] == a[1] && a[1] == a[2]) 
+            return true ; 
+        else return false ; 
+    }
+    bool isosceles()
+    {
+        if(a[0] == a[1] || a[1] == a[2]) 
+            return true ; 
+        else return false ; 
+    }
+    bool right()
+    {
+        if(a[0] * a[0] + a[1] * a[1] == a[2] * a[2]) 
+            return true ; 
+        else return false ;     
+    }
+public:
+    void get(int _a[])
+    {
+        for( int i = 0 ; i< 3 ; i++)
+            a[i] = _a[i] ; 
+    }
+    void out()
+    {
+        if(equileteral()) {cout << "A equileteral triangle" << endl ; return ; }
+        if(isosceles()) {cout << "A isosceles triangle" << endl ; return ; }
+        if(right()) {cout << "A right triangle" << endl ; return ;}
+        cout << "A triangle" << endl ; 
+    }
+} ; 
+bool check(int a[])
+{
+    if(a[0] + a[1] <= a[2]) return false ; 
+    return true ; 
+}
+int main()
+{
+    int a[3] ; 
+    for( int i = 0 ; i < 3 ; i++ ) 
+        cin >> a[i] ; 
+    sort(a , a+3) ;
+    if(!check(a)) {cout << "Not a triangle" << endl; return 0 ;} 
+    tri *s ; 
+    s = new tri ; 
+    s->get(a) ; 
+    s->out() ; 
+    return 0 ; 
+}
+*/
