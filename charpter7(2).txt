@@ -1,6 +1,8 @@
 A
 /*
 // 编译系统真喵的坑
+// 虽然题上没说但是最后也要换行
+//emmm...
 #include <cstdio>
 #include <algorithm>
 #include <iostream>
@@ -41,3 +43,61 @@ int main()
 	return 0 ;
 }
 */
+
+B
+/*
+#include <cstdio>
+#include <algorithm>
+#include <cstring>
+#include <string>
+#include <iostream>
+using namespace std ;
+class node 
+{
+private:
+	string s; 
+	int salary , y , m , d ; 
+public:
+	void get(string _s , int _salary , int _y , int _m , int _d )
+	{
+		s = _s ; 
+		salary = _salary ; 
+		y = _y ; 
+		m = _m ; 
+		d = _d ; 
+	}
+	string outName() {return s ; }
+	int outSalary() {return salary ; }
+	int outY() {return y ; }
+	int outM() {return m ; }
+} member[6]; 
+int cal(int n , int y , int m)
+{
+	int t = 0;
+	int _y = member[n].outY() ; 
+	int _m = member[n].outM() ; 
+	while( _y != y || _m != m)
+	{
+		t++ ; 
+		_m ++; 
+		_y += _m / 13 ; 
+		if(_m == 13 ) _m = 1; 
+	}
+	return t ; 
+}
+int main()
+{
+	member[1].get("wang" , 5000 , 2000 , 10 , 23) ; 
+	member[2].get("liu" , 4500 , 2008 , 1 , 20) ; 
+	member[3].get("huo" , 3800 , 2003 , 7 , 3) ; 
+	member[4].get("ma" , 5300 , 2015 , 4 , 10 ) ;
+	member[5].get("meng" , 6000 , 2016 , 3 , 16 ) ; 
+	
+	int n ; 
+	cin >> n ; 
+	int _y , _m ; cin >> _y >> _m ; 
+	cout << member[n].outName() << " " << cal(n , _y , _m ) * member[n].outSalary() << endl ;
+	return 0 ; 
+}
+*/
+
