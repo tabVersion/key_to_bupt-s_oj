@@ -1,0 +1,43 @@
+A
+/*
+// 编译系统真喵的坑
+#include <cstdio>
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std ;
+
+class tim
+{
+private:
+	int y , m , d ;
+	string s ;  
+public:
+	void set()
+	{
+		cin >> y >> m >> d >> s ; 
+	}
+	bool check()
+	{
+		for(unsigned int i = 0 ; i < s.length() ; i ++)
+			if(s[i] == '.') return false ; 
+		return true ; 
+	}
+	void out()
+	{
+		if(check())
+			cout << y << "-" << m << "-"  << d << endl ; 
+		else 
+			cout << y << "年" << m << "月" << d << "日" <<endl ; 
+	}
+};
+
+int main()
+{
+	tim t ;
+	t.set() ; 
+	t.out() ; 
+	return 0 ;
+}
+*/
